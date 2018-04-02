@@ -1,0 +1,7 @@
+<view class='container'>
+  <image src='/image/img1.jpg' class='user-avatar'></image>
+  <text class='user-name'>Hello, 科科智能</text>
+  <view class='moto-content' bindtap = 'toast'>
+    <text class='moto'>开启小程序之旅</text>
+  </view>
+</view>

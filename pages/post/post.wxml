@@ -1,0 +1,31 @@
+<view class= 'nav-header'>
+  <view class='header-name'>{{data.length}}个任务， {{temp}}个已选择</view>
+</view>
+
+<view class='post'>
+  <block wx:for="{{data}}">
+    <view class='post-content'>
+      <view class='post-box' catchtap = 'onpostTap' data-num="{{index}}">
+        <view class='post-box-children' wx:if='{{item.state}}' ></view>
+      </view>
+      <text class='post-content-text'>{{item.data}}</text>
+      <image src='/image/11_03.jpg' class='post-content-img' bindtap="changeValue" data-num='{{index}}'></image>
+    </view>
+  </block>
+</view>
+
+<view class='bomb-box' wx:if ='{{editbox}}'>
+  <view class='bomb-box-title'>任务编辑</view>
+  <textarea class='bomb-box-content' placeholder="这里是任务内容的编辑区, 可以写任务要做的内容。请注意字数的限制。" placeholder-style="color:#000000;" value='{{inputvalue}}'  bindinput="bindTextAreaBlur" bindblur='leave'/>
+  <view class='bomb-box-btn bomb-box-determine' catchtap ='determine'>删除任务</view>
+  <view class='bomb-box-btn bomb-box-cancel' catchtap='cancel'>保存任务</view>
+</view>
+
+<view class='footer' catchtap ='edit'>
+  <image src='/image/2.jpg' class='footer-img'></image>
+</view>
+
+<view class="chang-box" hidden="{{hiddenChangeBox}}">
+ <input value="{{changeData}}" bindblur="changeValueBlur"></input>
+ <button bindtap="updateData">保存</button>
+</view>
